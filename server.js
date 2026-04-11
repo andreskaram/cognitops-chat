@@ -1,4 +1,22 @@
-const express = require('express');
+ process.on('uncaughtException', (err) => {                                     
+    console.error('STARTUP ERROR:', err.message);           
+    process.exit(1);
+  });
+
+  console.log('Starting...', !!process.env.ANTHROPIC_API_KEY);                   
+  
+  So the top of your file should look like:                                      
+                                                            
+  process.on('uncaughtException', (err) => {                                     
+    console.error('STARTUP ERROR:', err.message);
+    process.exit(1);                                                             
+  });                                                       
+
+  console.log('Starting...', !!process.env.ANTHROPIC_API_KEY);                   
+  
+  const express = require('express');                                            
+  const Anthropic = require('@anthropic-ai/sdk');           
+  const cors = require('cors');
   const Anthropic = require('@anthropic-ai/sdk');                                
   const cors = require('cors');                             
 
