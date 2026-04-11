@@ -3,6 +3,7 @@ var coMessages = [];
 var coIsOpen = false;
 var coIsLoading = false;
 var coWelcome = 'Hi! I can answer questions about CognitOps or help figure out if it is a good fit for your operation. What would you like to know?';
+var coProactive = '\ud83d\udc4b Looks like you\u2019re exploring CognitOps \u2014 can I help? Most visitors want to know how much their operation could save. Want a quick estimate?';
 
 function coEscape(str) {
     var d = document.createElement('div');
@@ -77,6 +78,16 @@ function coSend() {
     });
 }
 
+function coOpenProactive() {
+    if (!coIsOpen) {
+        coIsOpen = true;
+        document.getElementById('co-chat-window').classList.add('open');
+        coAppendMessage('bot', coProactive);
+        coMessages.push({ role: 'assistant', content: coProactive });
+        setTimeout(function() { document.getElementById('co-chat-input').focus(); }, 100);
+    }
+}
+
 function coInit() {
     var btn = document.getElementById('co-chat-btn');
     if (!btn) return;
@@ -90,6 +101,7 @@ function coInit() {
         this.style.height = 'auto';
         this.style.height = this.scrollHeight + 'px';
     });
+    setTimeout(coOpenProactive, 40000);
 }
 
 if (document.readyState === 'loading') {
