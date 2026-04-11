@@ -2,9 +2,7 @@ var CO_BACKEND = 'https://cognitops-chat.onrender.com';
   var coMessages = [];                                                           
   var coIsOpen = false;
   var coIsLoading = false;                                                       
-  var coWelcome = 'Hi! I can answer questions about CognitOps warehouse 
-  optimization software, or help figure out if it is a good fit for your         
-  operation. What would you like to know?';
+  var coWelcome = 'Hi! I can answer questions about CognitOps warehouse optimization software, or help figure out if it is a good fit for your operation. What would you like to know?';
                                                                                  
   function coAppendMessage(role, text) {                                         
     var el = document.getElementById('co-chat-messages');
