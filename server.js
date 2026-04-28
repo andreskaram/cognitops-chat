@@ -1,4 +1,4 @@
-const express = require('express');                                                                                 
+  const express = require('express');                                                                                 
   const Anthropic = require('@anthropic-ai/sdk');                                                                       
   const cors = require('cors');                                                                                         
   const path = require('path');
@@ -72,14 +72,4 @@ const express = require('express');
       console.error('Error:', error.message);                                                                           
       res.status(500).json({ error: 'Something went wrong.' });                                                       
     }                                                                                                                   
-  });
-                                                                                                                        
-  app.get('/health', function(req, res) { res.json({ status: 'ok' }); });
-
-  const PORT = process.env.PORT || 3000;
-  app.listen(PORT, function() { console.log('Server running on port ' + PORT); });                                    
-  app.get('/health', function(req, res) { res.json({ status: 'ok' }); });        
-   
-  const PORT = process.env.PORT || 3000;                                         
-  app.listen(PORT, function() { console.log('Server running on port ' + PORT);
   });
